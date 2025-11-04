@@ -820,7 +820,7 @@ input[type="email"].success {
 }
 
 /* MEDIA STYLING */
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1353px) {
 
     /* HEADER STYLING */
     .navList,
@@ -925,6 +925,8 @@ input[type="email"].success {
         padding-inline: 1.5rem !important;
     }
 }
+
+
 
 /* Modal Styling */
 .modal {
@@ -1595,3 +1597,4 @@ button,
     background: var(--bg-secondary);
     border-color: rgba(242, 189, 18, 0.9);
 }
+
