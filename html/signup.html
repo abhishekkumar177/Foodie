@@ -20,6 +20,46 @@
 
   <!-- Google Sign-In API -->
   <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <style>
+    .hero-section {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+      transition: background 1.5s ease;
+      color: #000;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-section h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      transition: color 1s ease;
+    }
+
+    .hero-section p {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #000;
+      margin-bottom: 20px;
+      transition: opacity 1s ease;
+    }
+
+    .hero-section .emoji {
+      font-size: 3rem;
+      transition: transform 0.5s ease, opacity 0.8s ease;
+      animation: pulse 2s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+    }
+  </style>
 </head>
 
 <body>
@@ -31,14 +71,13 @@
     <i class="fa-solid fa-moon"></i>
   </button>
 
-  <main class="container">
-    <section class="hero-section" aria-label="Foodie Hero Section">
-      <div class="logo">Foodie.</div>
-      <p class="hero-text">
-        We fill your tummy with delicious food with fast delivery
-      </p>
-      <div class="pizza-icon" aria-hidden="true">🍕</div>
-    </section>
+  <main class="cont">
+    <div class="container">
+    <div class="hero-section" id="heroSection">
+      <h1>Foodie.</h1>
+      <p id="tagline">Love at first bite</p>
+      <div class="emoji" id="emoji">🍕</div>
+    </div>
 
     <section class="form-section" aria-label="Login and Sign Up Forms">
       <!-- Login Form -->
@@ -153,6 +192,41 @@
       </article>
     </section>
   </main>
+
+
+  <script>
+    const hero = document.getElementById("heroSection");
+    const tagline = document.getElementById("tagline");
+    const emoji = document.getElementById("emoji");
+
+    const variations = [
+      { emoji: "🍕", text: "Love at first bite", gradient: "linear-gradient(135deg, #ff9f1c, #ffbf69)" },
+      { emoji: "🍔", text: "Juicy & loaded with flavor", gradient: "linear-gradient(135deg, #ff4e00, #ec9f05)" },
+      { emoji: "🍣", text: "Fresh rolls, happy souls", gradient: "linear-gradient(135deg, #00b4db, #0083b0)" },
+      { emoji: "🍰", text: "Sweet dreams served daily", gradient: "linear-gradient(135deg, #ff99ac, #ffdde1)" },
+      { emoji: "🥗", text: "Fresh, light & right", gradient: "linear-gradient(135deg, #56ab2f, #a8e063)" },
+      { emoji: "🌮", text: "Taco about happiness", gradient: "linear-gradient(135deg, #ffb75e, #ed8f03)" }
+    ];
+
+    let index = 0;
+
+    function changeHero() {
+      index = (index + 1) % variations.length;
+      const { emoji: newEmoji, text, gradient } = variations[index];
+      hero.style.background = gradient;
+      tagline.style.opacity = 0;
+      emoji.style.opacity = 0;
+
+      setTimeout(() => {
+        tagline.textContent = text;
+        emoji.textContent = newEmoji;
+        tagline.style.opacity = 1;
+        emoji.style.opacity = 1;
+      }, 400);
+    }
+
+    setInterval(changeHero, 3000);
+  </script>
 
   <script src="../js/auth.js" type="module"></script>
   <script src="../js/cursor.js"></script>
