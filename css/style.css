@@ -891,6 +891,38 @@
         color: var(--text-primary);
     }
 
+    /* Social media wrapper */
+    .social-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        margin-top: 18px;
+    }
+
+    .social-media {
+        width: 42px;
+        height: 42px;
+        padding: 8px;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.45);
+        backdrop-filter: blur(6px);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        transition: transform 0.6s ease, 
+                    box-shadow 0.6s ease, 
+                    background 0.4s ease;
+    }
+
+    .social-media:hover {
+        transform: rotate(360deg) scale(1.2);
+        background: #ffffff;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+    }
+
     .back-to-top {
         position: fixed;
         right: 1.5rem;
@@ -985,14 +1017,6 @@
 
         .desktop-action .hamberger {
             display: block;
-        }
-        /* remove search Input from navbar */
-        .desktop-action .navbar-search{
-            display: none;
-        }
-        /* remove theme toggle btn */
-        .desktop-action .theme-toggle{
-            display: none;
         }
 
         .mobile-menu {
